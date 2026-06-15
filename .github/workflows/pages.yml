@@ -30,7 +30,6 @@ jobs:
         with:
           node-version: latest
           check-latest: true
-          cache: npm
 
       - name: Install dependencies
         run: npm install
