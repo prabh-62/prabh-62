@@ -8,8 +8,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -18,22 +16,44 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: 24
-      - run: npm install
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v5
+          node-version: latest
+          check-latest: true
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.d.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: d
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v5
