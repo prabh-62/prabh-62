@@ -20,10 +20,14 @@ export function ExperienceProductCallout({
     alt: string
   } | null>(null)
 
+  const diagramCaption =
+    product.diagramCaption ?? "Architecture diagram"
+
   return (
     <div
+      id={product.id}
       className={cn(
-        "max-w-xl rounded-md border border-border/70 bg-muted/10 p-3 sm:p-3.5",
+        "max-w-xl scroll-mt-20 rounded-md border border-border/70 bg-muted/10 p-3 sm:p-3.5",
         product.imageSrc && !product.gallery
           ? cn(
               "flex flex-col gap-3",
@@ -188,7 +192,7 @@ export function ExperienceProductCallout({
           {product.diagramSrc ? (
             <figure className="m-0 mt-3 min-w-0 space-y-1.5 border-t border-border/60 pt-3">
               <figcaption className="text-muted-foreground text-[0.65rem] font-medium tracking-wide uppercase sm:text-xs">
-                Microservices architecture
+                {diagramCaption}
               </figcaption>
               <button
                 type="button"
@@ -198,10 +202,10 @@ export function ExperienceProductCallout({
                   if (!src) return
                   setLightbox({
                     src,
-                    alt: product.diagramAlt ?? "Architecture diagram",
+                    alt: product.diagramAlt ?? diagramCaption,
                   })
                 }}
-                aria-label="View full size: microservices architecture diagram"
+                aria-label={`View full size: ${diagramCaption}`}
               >
                 <img
                   src={product.diagramSrc}
@@ -215,6 +219,69 @@ export function ExperienceProductCallout({
             </figure>
           ) : null}
         </>
+      ) : product.diagramSrc ? (
+        <div className="w-full min-w-0 space-y-3">
+          <div>
+            <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">
+              {product.title}
+            </h4>
+            {product.description ? (
+              <p className="text-muted-foreground mt-1 text-xs leading-relaxed sm:text-sm">
+                {product.description}
+              </p>
+            ) : null}
+          </div>
+          <figure className="m-0 min-w-0 space-y-1.5">
+            <figcaption className="text-muted-foreground text-[0.65rem] font-medium tracking-wide uppercase sm:text-xs">
+              {diagramCaption}
+            </figcaption>
+            <button
+              type="button"
+              className="focus-visible:ring-ring bg-background block w-full max-w-full cursor-zoom-in rounded-md border border-border/80 p-1 focus-visible:ring-2 focus-visible:outline-none sm:p-1.5"
+              onClick={() => {
+                const src = product.diagramSrc
+                if (!src) return
+                setLightbox({
+                  src,
+                  alt: product.diagramAlt ?? diagramCaption,
+                })
+              }}
+              aria-label={`View full size: ${diagramCaption}`}
+            >
+              <img
+                src={product.diagramSrc}
+                alt=""
+                className="pointer-events-none mx-auto max-h-44 w-full max-w-full object-contain object-left-top sm:max-h-52"
+                loading="lazy"
+                decoding="async"
+                aria-hidden
+              />
+            </button>
+          </figure>
+          {product.links && product.links.length > 0 && (
+            <ul className="flex flex-wrap gap-x-2.5 gap-y-1 text-xs">
+              {product.links.map((l) => (
+                <li key={l.href}>
+                  <a
+                    className={cn(
+                      "inline-flex items-center gap-0.5",
+                      "text-[#3182ce] hover:underline"
+                    )}
+                    href={l.href}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {l.label}
+                    <ArrowUpRight
+                      className="size-3 opacity-80"
+                      aria-hidden
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       ) : (
         <div>
           <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">

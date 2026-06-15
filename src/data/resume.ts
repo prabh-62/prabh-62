@@ -34,7 +34,7 @@ type ProductGallerySlot = {
   alt: string
 }
 
-/** Plain text or one inline external link in the middle of the sentence. */
+/** Plain text, inline link, or inline diagram thumbnail (opens lightbox). */
 export type ExperienceBullet =
   | string
   | {
@@ -42,14 +42,21 @@ export type ExperienceBullet =
       link: { href: string; label: string }
       after: string
     }
+  | {
+      before: string
+      diagram: { src: string; alt: string; label: string }
+      after: string
+    }
 
 export type ProductCallout = {
+  id?: string
   title: string
   description: string
   imageSrc?: string
   imageAlt?: string
   diagramSrc?: string
   diagramAlt?: string
+  diagramCaption?: string
   links?: readonly { label: string; href: string }[]
   gallery?: {
     before: ProductGallerySlot
@@ -131,6 +138,7 @@ const synergizeProduct: ProductCallout = {
   diagramSrc: "/experiences/microdea/synergize-microservices.svg",
   diagramAlt:
     "Synergize microservices architecture diagram: services, APIs, and data flow",
+  diagramCaption: "Microservices architecture",
   links: [
     {
       label: "Documentation",
@@ -153,7 +161,16 @@ export const experience = [
     items: [
       "Accelerated UI transition from ASP.NET MVC to React v19 by leveraging shadcn components and AI tooling - Cursor.",
       "Created chat interface with Vercel AI elements powered by RAG system built with Azure search service and Microsoft Foundry along with an audit page for chat sessions.",
-      "Built Azure Search Indexer pipeline with knowledge store projections to log failure and success status for each ingested document.",
+      {
+        before:
+          "Built Azure Search Indexer pipeline with knowledge store projections to log failure and success status for each ingested document — ",
+        diagram: {
+          src: "/experiences/condocontrol/azure-search-indexer-pipeline.png",
+          alt: "Azure Search Indexer pipeline: S3 to Blob, indexed search, and knowledge-store status tracking via Event Grid and Azure Functions",
+          label: "view architecture",
+        },
+        after: ".",
+      },
     ],
   },
   {
@@ -165,7 +182,15 @@ export const experience = [
     secondaryProduct: transfloWorkflowAiProduct,
     items: [
       "Led the architecture of distributed microservices with scalable architecture and leveraging domain events - SQS, SNS, Lambda, and AWS Apprunner.",
-      "Acted as a glue between product and technical team, thereby streamlining the requirements and designs and pushing back against partially thought out product features.",
+      {
+        before: "Acted as a glue between ",
+        link: {
+          href: "https://www.linkedin.com/posts/briansowul_automation-ai-teamwork-activity-7121296799801245698-Uy9L/",
+          label: "product and technical teams",
+        },
+        after:
+          ", streamlining requirements and designs and pushing back against partially thought-out product features.",
+      },
       "Coded angular v18 + ASP.NET core v8 APIs and code reviewed pull requests on several frontend/backend products with actionable feedback and organized technical sessions on best practices resulting in lesser bugs.",
       "Hired and mentored junior software engineers to boost team productivity and faster delivery of product to market.",
       "Increased the productivity of the development team by moving backend and frontend source code to git monorepo saving hundreds of dev hours.",
