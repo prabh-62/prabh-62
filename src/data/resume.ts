@@ -21,6 +21,9 @@ export const skills = [
   "AWS",
   "Azure",
   "Docker",
+  "Amazon EKS",
+  "Redis",
+  "CloudFront",
   "MSSQL",
   "Azure AI Search",
   "RAG Pipelines",
@@ -113,7 +116,7 @@ const transfloOneProduct: ProductCallout = {
 const transfloWorkflowAiProduct: ProductCallout = {
   title: "Workflow AI for carriers",
   description:
-    "Carrier-facing workflow automation in Transflo’s AI product line.",
+    "Load paperwork ingested, extracted, and reviewed in one workflow.",
   imageSrc: "/experiences/transflo/carrier-workflow-ai.webp",
   imageAlt: "Transflo Workflow AI for carriers product overview",
   links: [
@@ -185,8 +188,26 @@ export const experience = [
     product: transfloOneProduct,
     secondaryProduct: transfloWorkflowAiProduct,
     items: [
-      "Architected and delivered Workflow AI, an end-to-end document automation product for trucking carriers: paperwork from mobile, email, and scanning stations runs through an OCR pipeline over HTTP, returns via AWS SQS to .NET Lambda handlers that flag discrepancies for back-office review, and surfaces in an Angular front end over a .NET BFF on App Runner.",
-      "Led the architecture of distributed microservices with scalable architecture and leveraging domain events - SQS, SNS, Lambda, and AWS Apprunner.",
+      {
+        before:
+          "Architected and delivered Workflow AI, an end-to-end document automation product for trucking carriers: load paperwork from the mobile app, email, and scanning stations runs through an OCR extraction pipeline and returns over AWS SQS to .NET Lambda handlers that flag discrepancies for back-office review — ",
+        diagram: {
+          src: "/experiences/transflo/workflow-ai-document-flow.jpg",
+          alt: "Document flow: load paperwork arriving from email, the mobile app, and scanning stations, passing through Hyperscience OCR extraction, and landing in the Workflow AI load review queue",
+          label: "view document flow",
+        },
+        after: ".",
+      },
+      {
+        before:
+          "Led the distributed microservices architecture — an Angular front end on a CloudFront/S3 static site I proposed, a .NET BFF aggregating the workflow, loads, document, and imaging APIs, domain events over SQS and SNS, Lambda, and Redis caching — and deployed the Windows-based imaging service on Amazon EKS, which App Runner cannot host — ",
+        diagram: {
+          src: "/experiences/transflo/workflow-ai-architecture.jpg",
+          alt: "Workflow AI architecture: browser to CloudFront and an S3 static site, through a BFF on AWS App Runner, fanning out to the Carrier Freight Workflow API, TMS Loads API, Synergize API on IIS, and an Imaging API on Amazon EKS, with Redis and SQL Server behind them",
+          label: "view architecture",
+        },
+        after: ".",
+      },
       {
         before: "Acted as a glue between ",
         link: {
