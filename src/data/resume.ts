@@ -9,7 +9,7 @@ export const profile = {
 }
 
 export const summary =
-  "Results driven software engineer and team leader with over 9 years of professional experience, I'm driven to leverage my expertise in full-stack development and cloud solutions to drive product innovation and help deliver products to market faster."
+  "Senior software engineer with 9+ years building and modernizing enterprise .NET and cloud systems. Most recently shipped a production RAG platform — Azure AI Search, .NET 9, React 19 — for a multi-tenant property management product; previously architected distributed microservices on AWS and delivered an end-to-end document automation product for the trucking industry. Comfortable owning a system from architecture through production and monitoring, and bridging product and engineering."
 
 export const skills = [
   "C#",
@@ -22,6 +22,10 @@ export const skills = [
   "Azure",
   "Docker",
   "MSSQL",
+  "Azure AI Search",
+  "RAG Pipelines",
+  "Vector Search",
+  "LLM Integration",
   "Systems Design",
   "Message Queue",
   "IaC",
@@ -154,16 +158,15 @@ const synergizeProduct: ProductCallout = {
 export const experience = [
   {
     title: "Senior Developer",
-    company: "Property Control",
+    company: "Condo Control (Property Control)",
     where: "Toronto, ON - Remote",
-    dates: "Aug 2024 – Present",
+    dates: "Aug 2024 – Aug 2026",
     product: propertyControlProduct,
     items: [
-      "Accelerated UI transition from ASP.NET MVC to React v19 by leveraging shadcn components and AI tooling - Cursor.",
-      "Created chat interface with Vercel AI elements powered by RAG system built with Azure search service and Microsoft Foundry along with an audit page for chat sessions.",
+      "Built and shipped the product's RAG chat platform end to end: a React 19 interface on Vercel AI Elements backed by a .NET 9 API that runs parallel vector searches across Azure AI Search and composes cited answers from the top-ranked chunks.",
       {
         before:
-          "Built Azure Search Indexer pipeline with knowledge store projections to log failure and success status for each ingested document — ",
+          "Closed a silent-failure gap in ingestion where password-protected and macro-enabled files were skipped without any signal — roughly 3,000 of 27,000 documents across nearly 200 tenants were invisible to search, so customers received confident answers that omitted their own files. Built an event-driven status pipeline giving every document a durable, queryable index status per tenant, with the Azure Function authenticating via managed identity so no database credential sits in the serverless tier — ",
         diagram: {
           src: "/experiences/condocontrol/azure-search-indexer-pipeline.png",
           alt: "Azure Search Indexer pipeline: S3 to Blob, indexed search, and knowledge-store status tracking via Event Grid and Azure Functions",
@@ -171,6 +174,7 @@ export const experience = [
         },
         after: ".",
       },
+      "Accelerated the UI transition from ASP.NET MVC to React 19 using shadcn/ui components and AI-assisted development in Cursor, and added a session audit page for reviewing chat history.",
     ],
   },
   {
@@ -181,6 +185,7 @@ export const experience = [
     product: transfloOneProduct,
     secondaryProduct: transfloWorkflowAiProduct,
     items: [
+      "Architected and delivered Workflow AI, an end-to-end document automation product for trucking carriers: paperwork from mobile, email, and scanning stations runs through an OCR pipeline over HTTP, returns via AWS SQS to .NET Lambda handlers that flag discrepancies for back-office review, and surfaces in an Angular front end over a .NET BFF on App Runner.",
       "Led the architecture of distributed microservices with scalable architecture and leveraging domain events - SQS, SNS, Lambda, and AWS Apprunner.",
       {
         before: "Acted as a glue between ",
@@ -192,7 +197,7 @@ export const experience = [
           ", streamlining requirements and designs and pushing back against partially thought-out product features.",
       },
       "Coded angular v18 + ASP.NET core v8 APIs and code reviewed pull requests on several frontend/backend products with actionable feedback and organized technical sessions on best practices resulting in lesser bugs.",
-      "Hired and mentored junior software engineers to boost team productivity and faster delivery of product to market.",
+      "Hired and onboarded six offshore engineers, cutting pull-request review cycles from roughly five rounds to near zero by front-loading codebase context into ticket handoffs.",
       "Increased the productivity of the development team by moving backend and frontend source code to git monorepo saving hundreds of dev hours.",
       "Created and maintained several CI/CD pipelines in Azure DevOps using task groups and regular updates to underlying build tools.",
       "Organized and documented production deployments using AWS CDK (Infrastructure as Code) and followed up on post deployment issues.",
