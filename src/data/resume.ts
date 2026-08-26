@@ -75,7 +75,7 @@ export type ProductCallout = {
 const propertyControlProduct: ProductCallout = {
   title: "UI modernization (before → after)",
   description:
-    "",
+    "Led the front-end migration off the legacy ASP.NET MVC client to a React 19 interface, shipped incrementally so the product stayed live throughout.",
   links: [
     { label: "app.condocontrol.com", href: "https://app.condocontrol.com/" },
   ],
@@ -101,7 +101,7 @@ const propertyControlProduct: ProductCallout = {
 const transfloOneProduct: ProductCallout = {
   title: "Transflo Portal",
   description:
-    "",
+    "The carrier-facing hub for Transflo's document and workflow products, used by trucking companies across North America.",
   imageSrc: "/experiences/transflo/transflo-one-dashboard.jpg",
   imageAlt: "Transflo One portal dashboard with applications and content",
   links: [
@@ -217,7 +217,7 @@ export const experience = [
         after:
           ", streamlining requirements and designs and pushing back against partially thought-out product features.",
       },
-      "Coded angular v18 + ASP.NET core v8 APIs and code reviewed pull requests on several frontend/backend products with actionable feedback and organized technical sessions on best practices resulting in lesser bugs.",
+      "Ran technical sessions on Angular and ASP.NET Core best practices and gave actionable code review feedback across the team, reducing recurring bugs.",
       "Hired and onboarded six offshore engineers, cutting pull-request review cycles from roughly five rounds to near zero by front-loading codebase context into ticket handoffs.",
       "Increased the productivity of the development team by moving backend and frontend source code to git monorepo saving hundreds of dev hours.",
       "Created and maintained several CI/CD pipelines in Azure DevOps using task groups and regular updates to underlying build tools.",
@@ -233,7 +233,6 @@ export const experience = [
     items: [
       "Created and maintained several UI applications built with the latest version of Angular while reusing code through TypeScript libraries.",
       "Coded, designed, and maintained multiple ASP.NET Core Web APIs with regular updates that served as the foundation for business-critical applications.",
-      "Performed code reviews for pull requests on multiple frontend and backend products to ensure top-notch code quality.",
       "Introduced tunneling software to reduce the time needed to expose several on-premise client web services, saving hundreds of company implementation hours.",
       {
         before: "Introduced the ",
@@ -284,7 +283,7 @@ export const projects: readonly Project[] = [
   {
     name: "Ticketing Web Application",
     items: [
-      "Managed over $15K in ticket sales for an event using a Stripe backend(2.9% fees).",
+      "Processed over $15K in ticket sales for an event through a Stripe-backed checkout (with 2.9% fees).",
       "Automated volunteer registration using Firebase Functions and Google Sheets.",
     ],
     media: [
