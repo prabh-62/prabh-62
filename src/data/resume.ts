@@ -18,25 +18,11 @@ export const skillGroups = [
   },
   {
     category: "Cloud & Data",
-    items: [
-      "Azure",
-      "AWS",
-      "Docker",
-      "Amazon EKS",
-      "Redis",
-      "CloudFront",
-      "MSSQL",
-      "SQL Profiler",
-    ],
+    items: ["Azure", "AWS", "Docker", "Amazon EKS", "Redis", "CloudFront", "MSSQL", "SQL Profiler"],
   },
   {
     category: "AI & Search",
-    items: [
-      "Azure AI Search",
-      "RAG Pipelines",
-      "Vector Search",
-      "LLM Integration",
-    ],
+    items: ["Azure AI Search", "RAG Pipelines", "Vector Search", "LLM Integration"],
   },
   {
     category: "Observability",
@@ -97,9 +83,7 @@ const propertyControlProduct: ProductCallout = {
   title: "UI modernization (before → after)",
   description:
     "Led the front-end migration off the legacy ASP.NET MVC client to a React 19 interface, shipped incrementally so the product stayed live throughout.",
-  links: [
-    { label: "app.condocontrol.com", href: "https://app.condocontrol.com/" },
-  ],
+  links: [{ label: "app.condocontrol.com", href: "https://app.condocontrol.com/" }],
   gallery: {
     before: {
       src: "/experiences/condocontrol/cc-legacy.mp4",
@@ -136,8 +120,7 @@ const transfloOneProduct: ProductCallout = {
 
 const transfloWorkflowAiProduct: ProductCallout = {
   title: "Workflow AI for carriers",
-  description:
-    "Load paperwork ingested, extracted, and reviewed in one workflow.",
+  description: "Load paperwork ingested, extracted, and reviewed in one workflow.",
   imageSrc: "/experiences/transflo/carrier-workflow-ai.webp",
   imageAlt: "Transflo Workflow AI for carriers product overview",
   links: [
@@ -150,8 +133,7 @@ const transfloWorkflowAiProduct: ProductCallout = {
 
 const ontarioInsideOpsProduct: ProductCallout = {
   title: "Inside OPS",
-  description:
-    "Ontario intranet context from the co-op (internal operations tooling).",
+  description: "Ontario intranet context from the co-op (internal operations tooling).",
   imageSrc: "/experiences/government_of_ontario/inside-ops.webp",
   imageAlt: "Inside OPS intranet interface",
   links: [],
@@ -164,8 +146,7 @@ const synergizeProduct: ProductCallout = {
   imageSrc: "/experiences/microdea/synergize-explorer.png",
   imageAlt: "Synergize Explorer HTML5 interface",
   diagramSrc: "/experiences/microdea/synergize-microservices.svg",
-  diagramAlt:
-    "Synergize microservices architecture diagram: services, APIs, and data flow",
+  diagramAlt: "Synergize microservices architecture diagram: services, APIs, and data flow",
   diagramCaption: "Microservices architecture",
   links: [
     {
@@ -318,8 +299,7 @@ export const projects: readonly Project[] = [
 ]
 
 export const education = {
-  program:
-    "Computer Systems Technology",
+  program: "Computer Systems Technology",
   school: "Sheridan Institute of Technology and Advanced Learning",
   where: "Brampton, ON",
   dates: "Sep 2013 – Dec 2016",

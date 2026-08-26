@@ -6,14 +6,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 /** Parses "Mon YYYY" (e.g. Aug 2024). Returns 0-based month and year, or null. */
-function parseMonthYear(
-  s: string
-): { year: number; month: number } | null {
+function parseMonthYear(s: string): { year: number; month: number } | null {
   const t = s.trim()
   if (!t) return null
-  const m = t.match(
-    /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{4})$/i
-  )
+  const m = t.match(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+(\d{4})$/i)
   if (!m) return null
   const d = new Date(`${m[1]} 1, ${m[2]}`)
   if (Number.isNaN(d.getTime())) return null
@@ -28,10 +24,7 @@ function toMonthIndex(y: number, m: number) {
  * Human-readable length for resume strings like "Aug 2024 – Present" or "Oct 2021 – Jul 2024".
  * `now` is injectable for tests. Returns null if the range is unparseable.
  */
-export function formatEmploymentDuration(
-  dates: string,
-  now: Date = new Date()
-): string | null {
+export function formatEmploymentDuration(dates: string, now: Date = new Date()): string | null {
   const parts = dates.split(/\s*[–-]\s+/)
   if (parts.length !== 2) return null
   const [startS, endS] = [parts[0]!.trim(), parts[1]!.trim()]
@@ -42,11 +35,7 @@ export function formatEmploymentDuration(
   let endIndex: number
   if (/^present$/i.test(endS)) {
     // Through current month: exclusive end = first of next month
-    const ex = new Date(
-      now.getFullYear(),
-      now.getMonth() + 1,
-      1
-    )
+    const ex = new Date(now.getFullYear(), now.getMonth() + 1, 1)
     endIndex = toMonthIndex(ex.getFullYear(), ex.getMonth())
   } else {
     const end = parseMonthYear(endS)
@@ -73,12 +62,9 @@ export function formatEmploymentDuration(
 function formatYearsAndMonthsWithIntl(
   years: number,
   months: number,
-  locales: Intl.LocalesArgument = "en"
+  locales: Intl.LocalesArgument = "en",
 ): string {
-  if (
-    typeof Intl === "undefined" ||
-    typeof Intl.DurationFormat !== "function"
-  ) {
+  if (typeof Intl === "undefined" || typeof Intl.DurationFormat !== "function") {
     if (years === 0) return months === 1 ? "1 month" : `${months} months`
     if (months === 0) return years === 1 ? "1 year" : `${years} years`
     return `${years === 1 ? "1 year" : `${years} years`} ${

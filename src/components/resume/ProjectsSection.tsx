@@ -1,11 +1,6 @@
 import { useState } from "react"
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { projects } from "@/data/resume"
 import { cn } from "@/lib/utils"
 
@@ -24,9 +19,7 @@ export function ProjectsSection() {
       {projects.map((p) => (
         <Card key={p.name} className="mt-6">
           <CardHeader>
-            <CardTitle className="text-base text-[#1a365d] sm:text-lg">
-              {p.name}
-            </CardTitle>
+            <CardTitle className="text-base text-[#1a365d] sm:text-lg">{p.name}</CardTitle>
           </CardHeader>
           <CardContent>
             {p.media && p.media.length > 0 ? (
@@ -50,13 +43,11 @@ export function ProjectsSection() {
                       <button
                         type="button"
                         className={cn(
-                          "focus-visible:ring-ring bg-background mx-auto block h-40 w-40 max-w-full cursor-zoom-in overflow-hidden rounded-md border border-border/80 p-0 shadow-sm focus-visible:ring-2 focus-visible:outline-none sm:mx-0 sm:h-44 sm:w-44"
+                          "focus-visible:ring-ring bg-background mx-auto block h-40 w-40 max-w-full cursor-zoom-in overflow-hidden rounded-md border border-border/80 p-0 shadow-sm focus-visible:ring-2 focus-visible:outline-none sm:mx-0 sm:h-44 sm:w-44",
                         )}
                         onClick={() => setLightbox({ src: m.src, alt: m.alt })}
                         aria-label={
-                          m.label
-                            ? `View full size: ${m.label}`
-                            : `View full size: ${m.alt}`
+                          m.label ? `View full size: ${m.label}` : `View full size: ${m.alt}`
                         }
                       >
                         <img
@@ -84,10 +75,7 @@ export function ProjectsSection() {
           </CardContent>
         </Card>
       ))}
-      <ImageLightbox
-        open={lightbox}
-        onDismiss={() => setLightbox(null)}
-      />
+      <ImageLightbox open={lightbox} onDismiss={() => setLightbox(null)} />
     </section>
   )
 }

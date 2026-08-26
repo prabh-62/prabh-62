@@ -27,10 +27,7 @@ export function EducationSection() {
                 {resumeEducation.dates}
               </p>
               <p className="mt-0.5 flex items-start justify-start gap-1.5 text-left text-xs leading-snug text-muted-foreground sm:mt-1 sm:justify-end sm:gap-1.5 sm:text-right sm:text-[0.7rem] md:text-xs">
-                <MapPin
-                  className="mt-0.5 size-3 shrink-0 text-muted-foreground/85"
-                  aria-hidden
-                />
+                <MapPin className="mt-0.5 size-3 shrink-0 text-muted-foreground/85" aria-hidden />
                 <span className="min-w-0">{educationWhere}</span>
               </p>
             </div>
@@ -99,17 +96,14 @@ export function EducationSection() {
                         <a
                           className={cn(
                             "mt-2 inline-flex w-fit items-center gap-0.5 text-xs font-medium",
-                            "text-[#3182ce] hover:underline"
+                            "text-[#3182ce] hover:underline",
                           )}
                           href={community.mlh.href}
                           rel="noreferrer"
                           target="_blank"
                         >
                           Read on MLH Stories
-                          <ArrowUpRight
-                            className="size-3.5 shrink-0"
-                            aria-hidden
-                          />
+                          <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
                         </a>
                       </div>
                     </div>
@@ -120,10 +114,7 @@ export function EducationSection() {
           </div>
         </CardContent>
       </Card>
-      <ImageLightbox
-        open={lightbox}
-        onDismiss={() => setLightbox(null)}
-      />
+      <ImageLightbox open={lightbox} onDismiss={() => setLightbox(null)} />
     </section>
   )
 }

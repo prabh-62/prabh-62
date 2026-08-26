@@ -18,8 +18,7 @@ export function ExperienceBulletLine({ bullet }: ExperienceBulletLineProps) {
   }
 
   if ("diagram" in bullet) {
-    const openDiagram = () =>
-      setLightbox({ src: bullet.diagram.src, alt: bullet.diagram.alt })
+    const openDiagram = () => setLightbox({ src: bullet.diagram.src, alt: bullet.diagram.alt })
 
     return (
       <>
@@ -41,16 +40,10 @@ export function ExperienceBulletLine({ bullet }: ExperienceBulletLineProps) {
           <span className="text-xs font-normal text-[#3182ce] sm:text-sm">
             {bullet.diagram.label}
           </span>
-          <ArrowUpRight
-            className="size-3 shrink-0 text-[#3182ce] opacity-80"
-            aria-hidden
-          />
+          <ArrowUpRight className="size-3 shrink-0 text-[#3182ce] opacity-80" aria-hidden />
         </button>
         {bullet.after}
-        <ImageLightbox
-          open={lightbox}
-          onDismiss={() => setLightbox(null)}
-        />
+        <ImageLightbox open={lightbox} onDismiss={() => setLightbox(null)} />
       </>
     )
   }
@@ -62,9 +55,7 @@ export function ExperienceBulletLine({ bullet }: ExperienceBulletLineProps) {
       <a
         className="text-[#3182ce] hover:underline"
         href={bullet.link.href}
-        {...(isExternal
-          ? { rel: "noreferrer", target: "_blank" }
-          : undefined)}
+        {...(isExternal ? { rel: "noreferrer", target: "_blank" } : undefined)}
       >
         {bullet.link.label}
       </a>

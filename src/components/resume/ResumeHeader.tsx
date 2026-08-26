@@ -9,14 +9,12 @@ export function ResumeHeader() {
       <h1 className="font-heading text-3xl font-bold tracking-tight text-[#1a365d] sm:text-4xl">
         {profile.name}
       </h1>
-      <p className="mt-2 text-balance text-base text-[#3182ce] sm:text-lg">
-        {profile.tagline}
-      </p>
+      <p className="mt-2 text-balance text-base text-[#3182ce] sm:text-lg">{profile.tagline}</p>
       <div className="mt-6 flex w-full flex-col gap-3 text-left text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-x-2 sm:gap-y-2">
         <a
           className={cn(
             "inline-flex min-w-0 items-center gap-2 sm:shrink",
-            "text-[#3182ce] hover:underline"
+            "text-[#3182ce] hover:underline",
           )}
           href={profile.linkedinHref}
           rel="noreferrer"
@@ -35,7 +33,7 @@ export function ResumeHeader() {
         <a
           className={cn(
             "inline-flex min-w-0 items-center gap-2 sm:shrink",
-            "text-[#3182ce] hover:underline"
+            "text-[#3182ce] hover:underline",
           )}
           href={profile.githubHref}
           rel="noreferrer"

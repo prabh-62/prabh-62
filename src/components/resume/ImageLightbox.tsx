@@ -25,7 +25,7 @@ export function ImageLightbox({ open, onDismiss }: ImageLightboxProps) {
       tabIndex={-1}
       autoFocus
       className={cn(
-        "fixed inset-0 z-50 box-border flex min-h-[100dvh] w-full flex-col items-center justify-center bg-black/70 p-3 outline-none backdrop-blur-[2px] sm:p-6"
+        "fixed inset-0 z-50 box-border flex min-h-[100dvh] w-full flex-col items-center justify-center bg-black/70 p-3 outline-none backdrop-blur-[2px] sm:p-6",
       )}
       onClick={onDismiss}
       onKeyDown={(e) => {

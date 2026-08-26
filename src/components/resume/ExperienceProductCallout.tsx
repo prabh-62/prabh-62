@@ -11,17 +11,13 @@ type ExperienceProductCalloutProps = {
   className?: string
 }
 
-export function ExperienceProductCallout({
-  product,
-  className,
-}: ExperienceProductCalloutProps) {
+export function ExperienceProductCallout({ product, className }: ExperienceProductCalloutProps) {
   const [lightbox, setLightbox] = useState<{
     src: string
     alt: string
   } | null>(null)
 
-  const diagramCaption =
-    product.diagramCaption ?? "Architecture diagram"
+  const diagramCaption = product.diagramCaption ?? "Architecture diagram"
 
   return (
     <div
@@ -29,21 +25,15 @@ export function ExperienceProductCallout({
       className={cn(
         "max-w-xl scroll-mt-20 rounded-md border border-border/70 bg-muted/10 p-3 sm:p-3.5",
         product.imageSrc && !product.gallery
-          ? cn(
-              "flex flex-col gap-3",
-              !product.diagramSrc &&
-                "sm:flex-row sm:items-start sm:gap-4"
-            )
+          ? cn("flex flex-col gap-3", !product.diagramSrc && "sm:flex-row sm:items-start sm:gap-4")
           : undefined,
-        className
+        className,
       )}
     >
       {product.gallery ? (
         <div className="w-full min-w-0 space-y-3">
           <div>
-            <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">
-              {product.title}
-            </h4>
+            <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">{product.title}</h4>
             {product.description ? (
               <p className="text-muted-foreground mt-1 text-xs leading-relaxed sm:text-sm">
                 {product.description}
@@ -113,17 +103,14 @@ export function ExperienceProductCallout({
                   <a
                     className={cn(
                       "inline-flex items-center gap-0.5",
-                      "text-[#3182ce] hover:underline"
+                      "text-[#3182ce] hover:underline",
                     )}
                     href={l.href}
                     rel="noreferrer"
                     target="_blank"
                   >
                     {l.label}
-                    <ArrowUpRight
-                      className="size-3 opacity-80"
-                      aria-hidden
-                    />
+                    <ArrowUpRight className="size-3 opacity-80" aria-hidden />
                   </a>
                 </li>
               ))}
@@ -156,9 +143,7 @@ export function ExperienceProductCallout({
               </div>
             </button>
             <div className="min-w-0 flex-1">
-              <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">
-                {product.title}
-              </h4>
+              <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">{product.title}</h4>
               {product.description ? (
                 <p className="text-muted-foreground mt-1 text-xs leading-relaxed sm:text-sm">
                   {product.description}
@@ -171,17 +156,14 @@ export function ExperienceProductCallout({
                       <a
                         className={cn(
                           "inline-flex items-center gap-0.5",
-                          "text-[#3182ce] hover:underline"
+                          "text-[#3182ce] hover:underline",
                         )}
                         href={l.href}
                         rel="noreferrer"
                         target="_blank"
                       >
                         {l.label}
-                        <ArrowUpRight
-                          className="size-3 opacity-80"
-                          aria-hidden
-                        />
+                        <ArrowUpRight className="size-3 opacity-80" aria-hidden />
                       </a>
                     </li>
                   ))}
@@ -222,9 +204,7 @@ export function ExperienceProductCallout({
       ) : product.diagramSrc ? (
         <div className="w-full min-w-0 space-y-3">
           <div>
-            <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">
-              {product.title}
-            </h4>
+            <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">{product.title}</h4>
             {product.description ? (
               <p className="text-muted-foreground mt-1 text-xs leading-relaxed sm:text-sm">
                 {product.description}
@@ -265,17 +245,14 @@ export function ExperienceProductCallout({
                   <a
                     className={cn(
                       "inline-flex items-center gap-0.5",
-                      "text-[#3182ce] hover:underline"
+                      "text-[#3182ce] hover:underline",
                     )}
                     href={l.href}
                     rel="noreferrer"
                     target="_blank"
                   >
                     {l.label}
-                    <ArrowUpRight
-                      className="size-3 opacity-80"
-                      aria-hidden
-                    />
+                    <ArrowUpRight className="size-3 opacity-80" aria-hidden />
                   </a>
                 </li>
               ))}
@@ -284,9 +261,7 @@ export function ExperienceProductCallout({
         </div>
       ) : (
         <div>
-          <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">
-            {product.title}
-          </h4>
+          <h4 className="text-xs font-semibold text-[#1a365d] sm:text-sm">{product.title}</h4>
           {product.description ? (
             <p className="text-foreground/90 mt-1 text-xs leading-relaxed sm:text-sm">
               {product.description}
@@ -299,7 +274,7 @@ export function ExperienceProductCallout({
                   <a
                     className={cn(
                       "inline-flex items-center gap-0.5",
-                      "text-[#3182ce] hover:underline"
+                      "text-[#3182ce] hover:underline",
                     )}
                     href={l.href}
                     rel="noreferrer"
@@ -314,10 +289,7 @@ export function ExperienceProductCallout({
           )}
         </div>
       )}
-      <ImageLightbox
-        open={lightbox}
-        onDismiss={() => setLightbox(null)}
-      />
+      <ImageLightbox open={lightbox} onDismiss={() => setLightbox(null)} />
     </div>
   )
 }

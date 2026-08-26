@@ -18,24 +18,17 @@ export function ExperienceItem({ job, isLast }: ExperienceItemProps) {
   const duration = formatEmploymentDuration(job.dates)
 
   return (
-    <li
-      className="group relative m-0 pb-8 pl-0 last:pb-0 sm:pb-9"
-    >
+    <li className="group relative m-0 pb-8 pl-0 last:pb-0 sm:pb-9">
       <div className="flex flex-col sm:flex-row sm:gap-3 sm:pt-0">
         <div className="w-full min-w-0 sm:w-max sm:shrink-0 sm:pt-1 sm:text-right">
           <p className="text-xs font-medium text-muted-foreground sm:whitespace-nowrap sm:text-sm">
             {job.dates}
           </p>
           {duration && (
-            <p className="text-muted-foreground/90 mt-0.5 text-[0.65rem] sm:text-xs">
-              {duration}
-            </p>
+            <p className="text-muted-foreground/90 mt-0.5 text-[0.65rem] sm:text-xs">{duration}</p>
           )}
           <p className="mt-0.5 flex items-start justify-start gap-1.5 text-left text-xs leading-snug text-muted-foreground sm:mt-1 sm:justify-end sm:gap-1.5 sm:text-right sm:text-[0.7rem] md:text-xs">
-            <MapPin
-              className="mt-0.5 size-3 shrink-0 text-muted-foreground/85"
-              aria-hidden
-            />
+            <MapPin className="mt-0.5 size-3 shrink-0 text-muted-foreground/85" aria-hidden />
             <span className="min-w-0">{where}</span>
           </p>
         </div>
@@ -55,9 +48,7 @@ export function ExperienceItem({ job, isLast }: ExperienceItemProps) {
                 className="bg-[#1a365d] ring-background absolute top-1.5 left-0 z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full ring-2 sm:hidden"
                 aria-hidden
               />
-              <h3 className="m-0 text-base font-semibold text-[#1a365d] sm:text-lg">
-                {job.title}
-              </h3>
+              <h3 className="m-0 text-base font-semibold text-[#1a365d] sm:text-lg">{job.title}</h3>
               <p className="m-0 mt-1 text-sm font-medium leading-snug text-[#3182ce]">
                 {job.company}
               </p>
@@ -72,16 +63,10 @@ export function ExperienceItem({ job, isLast }: ExperienceItemProps) {
                 ))}
               </ul>
               {"product" in job && job.product && (
-                <ExperienceProductCallout
-                  product={job.product}
-                  className="mt-4"
-                />
+                <ExperienceProductCallout product={job.product} className="mt-4" />
               )}
               {"secondaryProduct" in job && job.secondaryProduct && (
-                <ExperienceProductCallout
-                  product={job.secondaryProduct}
-                  className="mt-3"
-                />
+                <ExperienceProductCallout product={job.secondaryProduct} className="mt-3" />
               )}
             </div>
           </div>

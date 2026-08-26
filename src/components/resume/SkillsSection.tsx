@@ -27,9 +27,7 @@ const skillIcons: Record<string, ComponentType<{ className?: string }>> = {
 function SkillIcon({ name }: { name: string }) {
   const Icon = skillIcons[name]
   if (!Icon) return null
-  return (
-    <Icon data-icon="inline-start" className="text-muted-foreground" />
-  )
+  return <Icon data-icon="inline-start" className="text-muted-foreground" />
 }
 
 export function SkillsSection() {
@@ -45,38 +43,24 @@ export function SkillsSection() {
             <div className="mt-1.5 flex flex-wrap items-center gap-2">
               {group.items.map((item) =>
                 typeof item === "string" ? (
-                  <Badge
-                    key={item}
-                    variant="secondary"
-                    className="px-2.5 py-1 text-xs"
-                  >
+                  <Badge key={item} variant="secondary" className="px-2.5 py-1 text-xs">
                     <SkillIcon name={item} />
                     {item}
                   </Badge>
                 ) : (
-                  <span
-                    key={item.label}
-                    className="inline-flex flex-wrap items-center gap-1.5"
-                  >
-                    <Badge
-                      variant="outline"
-                      className="px-2.5 py-1 text-xs font-semibold"
-                    >
+                  <span key={item.label} className="inline-flex flex-wrap items-center gap-1.5">
+                    <Badge variant="outline" className="px-2.5 py-1 text-xs font-semibold">
                       <SkillIcon name={item.label} />
                       {item.label}
                     </Badge>
                     {item.tools.map((tool) => (
-                      <Badge
-                        key={tool}
-                        variant="secondary"
-                        className="px-2.5 py-1 text-xs"
-                      >
+                      <Badge key={tool} variant="secondary" className="px-2.5 py-1 text-xs">
                         <SkillIcon name={tool} />
                         {tool}
                       </Badge>
                     ))}
                   </span>
-                )
+                ),
               )}
             </div>
           </div>
