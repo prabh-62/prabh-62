@@ -11,28 +11,49 @@ export const profile = {
 export const summary =
   "Senior software engineer with 9+ years building and modernizing enterprise .NET and cloud systems. Most recently shipped a production RAG platform — Azure AI Search, .NET 9, React 19 — for a multi-tenant property management product; previously architected distributed microservices on AWS and delivered an end-to-end document automation product for the trucking industry. Comfortable owning a system from architecture through production and monitoring, and bridging product and engineering."
 
-export const skills = [
-  "C#",
-  "EF Core",
-  ".NET",
-  "TypeScript",
-  "React",
-  "Angular",
-  "AWS",
-  "Azure",
-  "Docker",
-  "Amazon EKS",
-  "Redis",
-  "CloudFront",
-  "MSSQL",
-  "Azure AI Search",
-  "RAG Pipelines",
-  "Vector Search",
-  "LLM Integration",
-  "Systems Design",
-  "Message Queue",
-  "IaC",
-  "CI/CD",
+export const skillGroups = [
+  {
+    category: "Languages & Frameworks",
+    items: ["C#", ".NET", "EF Core", "TypeScript", "React", "Angular"],
+  },
+  {
+    category: "Cloud & Data",
+    items: [
+      "Azure",
+      "AWS",
+      "Docker",
+      "Amazon EKS",
+      "Redis",
+      "CloudFront",
+      "MSSQL",
+      "SQL Profiler",
+    ],
+  },
+  {
+    category: "AI & Search",
+    items: [
+      "Azure AI Search",
+      "RAG Pipelines",
+      "Vector Search",
+      "LLM Integration",
+    ],
+  },
+  {
+    category: "Observability",
+    items: ["Azure Application Insights", "New Relic"],
+  },
+  {
+    category: "Practices",
+    items: [
+      "Systems Design",
+      { label: "CI/CD", tools: ["TeamCity", "Azure DevOps"] },
+      {
+        label: "Message Queue",
+        tools: ["AWS SNS", "AWS SQS", "RabbitMQ"],
+      },
+      { label: "IaC", tools: ["AWS CDK"] },
+    ],
+  },
 ] as const
 
 type ProductGallerySlot = {
